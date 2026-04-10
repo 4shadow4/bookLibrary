@@ -28,7 +28,7 @@ html{
     width: 100%;
     height: 100%;
 
-    background-image: url("./pictures/BackGround.jpeg");
+    background-image: url("./pictures/Back.png");
     image-rendering: pixelated;
 }
 
@@ -44,23 +44,29 @@ img{
 }
 
 button{
-    padding: 12px 18px;
+    display: block;
+    padding: 12px 24px;
     font-size: 1.2rem;
 
-    background-color: rgb(58, 50, 41);
-    border:  2px solid rgb(39, 32, 23);
-    border-radius: 6px;
+    background-color: rgb(94, 81, 67);
+    border: 2px solid rgb(94, 81, 67);
+    background-image: url(./pictures/BackGround.jpeg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    image-rendering: pixelated;
+    padding: 12px 24px;
+
+    cursor: pointer;
 
 }
 
 button:hover{
-    background-color: rgb(94, 81, 67);
-    border:  2px solid rgb(77, 63, 46);
+    filter: brightness(0.9);
 }
 
 button:active{
-    background-color: rgb(34, 29, 24);
-    border:  2px solid rgb(32, 26, 19);
+    filter: brightness(0.75);
 }
 
 .container{
@@ -73,5 +79,27 @@ button:active{
 }
 
 .library{
-    display: inline-block;
+    width: 1000px;
+    height: 650px;
+
+    padding: 24px 54px;
+
+    background-image: url("./pictures/Boockshelf.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+
+    display: grid;
+    grid-template-columns: repeat(5, 53px) 73px repeat(5, 53px) 74px repeat(4, 54px);
+    grid-template-rows: repeat(4, 130px);
+
+    align-items: stretch;
+    justify-items: right;
+
+    row-gap: 12px;
+}
+
+.library:nth-child(6n){
+    margin-left: 20px;
 }
