@@ -1,3 +1,19 @@
+const library = document.getElementById("library");
+const addBook = document.getElementById("addBook");
+const formContainer = document.getElementById("formContainer");
+
+let books = [];
+
+addBook.addEventListener('click', function(){
+    let book = document.createElement("button");
+    formContainer.style.visibility = "visible";
+
+    library.append(book);
+
+});
+
+
+
 function book(title, author, pages, read){
     this.title = title;
     this.author = author;
@@ -8,6 +24,3 @@ function book(title, author, pages, read){
     }
 }
 
-const book1 = new book("The Brain", "Franz Bonapart", "189", true);
-
-book1.info();

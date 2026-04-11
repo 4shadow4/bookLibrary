@@ -78,7 +78,7 @@ button:active{
     padding: 32px;
 }
 
-.library{
+#library{
     width: 1000px;
     height: 650px;
 
@@ -100,6 +100,16 @@ button:active{
     row-gap: 12px;
 }
 
-.library:nth-child(6n){
+#library:nth-child(6n){
     margin-left: 20px;
+}
+
+#formContainer{
+    visibility: hidden;
+    position: fixed;
+    left: calc(50% - 200px);
+    top: calc(50% - 300px);
+
+    width: 400px;
+    height: 600px;
 }
