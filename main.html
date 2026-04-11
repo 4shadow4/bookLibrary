@@ -16,9 +16,36 @@
         </div>
 
         <div id="formContainer">
-            <form action="post">
+            <form id="formBook">
+                <p>
+                    <label for="name">Book Name</label>
+                    <input type="text" name="name" id="name">
+                </p>
+                <p>
+                    <label for="author">Book Author</label>
+                    <input type="text" name="author" id="author">
+                </p>
+                <p>
+                    <label for="pages">Pages</label>
+                    <input type="number" name="pages" id="pages" min="0">
+                </p>
+                <p>
+                    <label for="status">Status</label>
+                    <select name="status" id="status">
+                        <option value="true">read</option>
+                        <option value="false">not read</option>
+                    </select>
+                </p>
+            
+                <button type="submit" id="submit">Add Book to Library</button>
                 
             </form>
+        </div>
+        <div id="info">
+            <h3 id="infoTitle"></h3>
+            <p id="infoAuthor"></p>
+            <p id="infoPages"></p>
+            <p id="infoStatus"></p>
         </div>
 
     </div>
