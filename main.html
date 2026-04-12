@@ -17,24 +17,30 @@
 
         <div id="formContainer">
             <form id="formBook">
+                <h1>Add Book</h1>
+
                 <p>
                     <label for="name">Book Name</label>
-                    <input type="text" name="name" id="name">
+                    <input type="text" name="name" id="name" required>
                 </p>
                 <p>
                     <label for="author">Book Author</label>
-                    <input type="text" name="author" id="author">
+                    <input type="text" name="author" id="author" required>
                 </p>
                 <p>
                     <label for="pages">Pages</label>
-                    <input type="number" name="pages" id="pages" min="0">
+                    <input type="number" name="pages" id="pages" min="0" required>
                 </p>
                 <p>
                     <label for="status">Status</label>
-                    <select name="status" id="status">
+                    <select name="status" id="status" required>
                         <option value="true">read</option>
                         <option value="false">not read</option>
                     </select>
+                </p>
+                <p>
+                    <label for="img">Image</label>
+                    <input type="file" name="img" id="img" accept=".png,.jpg">
                 </p>
             
                 <button type="submit" id="submit">Add Book to Library</button>
@@ -42,10 +48,14 @@
             </form>
         </div>
         <div id="info">
-            <h3 id="infoTitle"></h3>
-            <p id="infoAuthor"></p>
-            <p id="infoPages"></p>
-            <p id="infoStatus"></p>
+            <div>
+                <button id="closeInfo"></button>
+                <img src="" alt="Picture of Book" id="infoImg">
+                <h3 id="infoTitle"></h3>
+                <p id="infoAuthor"></p>
+                <p id="infoPages"></p>
+                <p id="infoStatus"></p>
+            </div>
         </div>
 
     </div>
