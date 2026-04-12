@@ -10,6 +10,8 @@ const infoStatus = document.getElementById("infoStatus");
 const infoImg = document.getElementById("infoImg");
 const info = document.getElementById("info");
 const closeInfo = document.getElementById("closeInfo");
+const changeStatus = document.getElementById("changeStatus")
+const deleteBook = document.getElementById("deleteBook")
 let books = [];
 
 function createBook(title, author, pages, status, image, randId){
@@ -68,6 +70,7 @@ form.addEventListener('submit', function(e){
                 infoTitle.textContent = `Title: ${book.title}`;
                 infoAuthor.textContent = `by ${book.author}`;
                 infoPages.textContent = `Pages: ${book.pages}`;
+                deleteBook.dataset.bookid = customID;
                 infoImg.src = imageURL;
 
                 if(book.status){
@@ -87,6 +90,33 @@ form.addEventListener('submit', function(e){
 });
 
 closeInfo.addEventListener('click', function(){
+    info.style.visibility = "hidden";
+});
+
+changeStatus.addEventListener('click', function() {
+    const book = books.find(a => a.randId === deleteBook.dataset.bookid);
+
+    if(book.status){
+        book.status = false;
+    }else{
+        book.status = true;
+    }
+
+    if(book.status){
+        infoStatus.textContent = "Already read.";
+    }else{
+        infoStatus.textContent = "Not read yet";
+    }
+
+});
+
+deleteBook.addEventListener('click', function() {
+    const book = document.getElementById(deleteBook.dataset.bookid);
+    const bookIndex = books.findIndex(a => a.randId === deleteBook.dataset.bookid);
+
+    books.splice(bookIndex, 1);
+    library.removeChild(book);
+
     info.style.visibility = "hidden";
 });
 
