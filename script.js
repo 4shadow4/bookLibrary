@@ -14,14 +14,16 @@ const changeStatus = document.getElementById("changeStatus")
 const deleteBook = document.getElementById("deleteBook")
 let books = [];
 
-function createBook(title, author, pages, status, image, randId){
-    this.title = title;
+class createBook{
+    constructor(title, author, pages, status, image, randId){this.title = title;
     this.author = author;
     this.pages = pages;
     this.status = status;
     this.randId = randId;
     this.image = image;
-    this.info = function(){
+    };
+
+    info = function(){
         console.log(`${this.title} written by ${this.author}, pages ${this.pages}, ${this.read? 'already read':'not read yet'}`)
     }
 }
@@ -43,7 +45,7 @@ form.addEventListener('submit', function(e){
     const pages = document.getElementById("pages").value;
     const status = document.getElementById("status").value === "true";
     const image = document.getElementById("img").files[0];
-    const imageURL = URL.createObjectURL(image);
+    const imageURL = (image) ? URL.createObjectURL(image): null;
 
     const bookButton = document.createElement("button");
     const bookTitle = document.createElement("p");
@@ -71,7 +73,9 @@ form.addEventListener('submit', function(e){
                 infoAuthor.textContent = `by ${book.author}`;
                 infoPages.textContent = `Pages: ${book.pages}`;
                 deleteBook.dataset.bookid = customID;
-                infoImg.src = imageURL;
+                if(imageURL){
+                    infoImg.src = imageURL;
+                }
 
                 if(book.status){
                     infoStatus.textContent = "Already read.";
